@@ -101,7 +101,7 @@
 
 ## 📁 File Structure
 
-```text
+
 ├── index.html                             # Main landing page
 ├── academic-template-form.html           # Academic-focused form
 ├── business-template-form.html           # Business & corporate form
