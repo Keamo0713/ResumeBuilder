@@ -126,5 +126,6 @@ This project is open-source and available under the MIT License.
 Feel free to use, modify, and contribute.
 ![image](https://github.com/user-attachments/assets/0c6cf1ad-1eaf-41dd-870f-4b583fee8b42)
 ![image](https://github.com/user-attachments/assets/6813c590-3927-4f92-8374-4f1554c737d9)
-![image](https://github.com/user-attachments/assets/4d1a4b2e-e0c1-4ee0-9f47-192c66883a5a)
+![image](https://github.com/user-attachments/assets/ed4040e3-79de-4666-b014-b35d0d9f1e76)
+
 
