@@ -1,146 +1,143 @@
-PAGES: https://keamo0713.github.io/ResumeBuilder/ 
+📌 Live Demo
+🎯 Try it now: https://keamo0713.github.io/ResumeBuilder/
 
-Resume AI Studio 
+**Resume AI Studio** is a collaborative, web-based tool built by a dedicated development team to help users create professional, ATS-optimized resumes tailored to specific industries. With dynamic templates and integrated AI tools, it streamlines the resume creation process for a modern job market.
 
-Welcome to Resume AI Studio, a web-based application designed to help users quickly and efficiently create professional, tailored resumes for various career fields. This studio leverages specialized templates and AI-powered tools to optimize resumes for Applicant Tracking Systems (ATS) and enhance overall content. 
+---
 
-Table of Contents 
+## 🚀 Features
 
-Overview 
+- **Wide Template Selection**  
+  Choose from tailored templates for Tech, Business, Healthcare, Academic, Entry-Level, Creative, and more.
 
-Features 
+- **Industry-Specific Fields**  
+  Forms are customized per industry for relevant and impactful content.
 
-File Structure 
+- **AI-Powered Enhancements**  
+  Use AI to refine your writing, strengthen phrasing, and amplify achievements.
 
-Usage 
+- **ATS Optimization**  
+  Analyze your resume against job descriptions for better Applicant Tracking System (ATS) compatibility.
 
-Templates Available 
+- **Cover Letter Generator**  
+  Instantly generate a personalized cover letter from your resume data.
 
-AI Capabilities 
+- **Flexible Export Options**  
+  Download as PDF, DOCX (HTML for Word), or raw HTML format.
 
-Technical Details 
+- **Clipboard & Reset Options**  
+  Quickly copy your resume or reset the form to start over.
 
-1. Overview 
+- **Responsive Design**  
+  Built with Tailwind CSS for a seamless experience on any device.
 
-The Resume AI Studio provides a user-friendly interface to input personal, educational, and professional details, then generates a resume based on the selected industry-specific template. It aims to simplify the resume creation process, ensuring that the output is not only well-formatted but also highly competitive in today's job market. 
+---
 
-2. Features 
+## 🧭 Table of Contents
 
-Diverse Template Selection: Choose from a range of specialized templates (e.g., Tech, Business, Healthcare, Academic, Sales & Marketing, Customer Service, Project Management, Entry-Level, Creative & Visual). 
+- [Overview](#-overview)  
+- [Usage](#-usage-guide)  
+- [Templates Available](#-templates-available)  
+- [AI Capabilities](#-ai-capabilities)  
+- [File Structure](#-file-structure)  
+- [Technical Stack](#-technical-details)  
+- [Contributors](#-contributors)  
+- [License](#-license)
 
-Industry-Specific Fields: Each template is customized with relevant input fields to capture essential information for that particular industry. 
+---
 
-Dynamic Sections: Ability to add multiple entries for experience, education, and projects as needed. 
+## 📝 Overview
 
-ATS Optimization: Input job descriptions to get an ATS compatibility analysis and suggestions for improvement. 
+**Resume AI Studio** provides an intuitive platform for creating polished resumes. Users can input personal and professional details, select a suitable template, and enhance their content using AI-powered suggestions. The platform ensures your final resume is professional, readable, and optimized for the modern job search.
 
-AI Enhancements: Option to use AI to refine phrasing, improve clarity, and amplify achievements within your resume. 
+---
 
-Cover Letter Generation: Generate a tailored cover letter based on your resume content and a provided job description. 
+## 🛠️ Usage Guide
 
-Multiple Download Formats: Download generated resumes as PDF, DOCX (HTML for Word), or HTML files. 
+1. **Launch** [`index.html`](https://keamo0713.github.io/ResumeBuilder/)
+2. **Choose a Template** best suited for your industry or role.
+3. **Fill In Details**: Personal info, skills, education, experience, etc.
+4. *(Optional Enhancements)*  
+   - **ATS Optimizer**: Input a job description and enable the ATS analysis.  
+   - **AI Enhancer**: Let AI improve your resume’s clarity and tone.  
+   - **Cover Letter Generator**: Auto-generate a cover letter based on your resume and job description.
+5. **Preview** the generated resume.
+6. **Switch Themes** (available in select templates like Tech & IT).
+7. **Download or Copy** your resume.
+8. **Reset** to start a new one.
 
-Clipboard Copy: Easily copy the generated resume content to your clipboard. 
+---
 
-Responsive Design: Optimized for various device sizes using Tailwind CSS. 
+## 🧩 Templates Available
 
-3. File Structure 
+| Template | Focus |
+|----------|-------|
+| **Academic & Research** | Publications, teaching, grants |
+| **Business & Corporate** | Professional achievements |
+| **Customer Service** | KPIs, customer metrics |
+| **Entry-Level** | Projects, career objectives |
+| **Healthcare** | Licenses, certifications |
+| **Creative & Visual** | Portfolio links, design elements |
+| **Project Management** | Methodologies, certifications |
+| **Sales & Marketing** | Conversions, growth metrics |
+| **Developer & Tech** | Projects, GitHub, technical skills |
 
-The project consists of several HTML files, each serving a specific purpose: 
+---
 
-index.html: The main landing page of the Resume AI Studio. It provides an overview of the application and links to the various resume templates. 
+## 🤖 AI Capabilities
 
-academic-template-form.html: Form for academic and research-focused resumes. 
+**Integrated via Gemini API**, our AI tools provide:
 
-business-template-form.html: Form for business and corporate resumes. 
+- **ATS Analysis**  
+  Get a breakdown of keyword alignment, action verbs, and formatting tips for job matching.
 
-customer-service-template-form.html: Form for customer service resumes. 
+- **Resume Content Enhancement**  
+  Improve grammar, phrasing, and impact of bullet points using AI.
 
-entry-level-template-form.html: Form for entry-level resumes, emphasizing projects and objectives. 
+- **Cover Letter Generation**  
+  Generate a job-specific cover letter that highlights key skills and qualifications.
 
-healthcare-template-form.html: Form for healthcare industry resumes, including certifications. 
+---
 
-image-upload-template-form.html: Form for creative and visual resumes, with a focus on portfolio links. 
+## 📁 File Structure
 
-project-management-template-form.html: Form for project management resumes, highlighting key projects and certifications. 
+```text
+├── index.html                             # Main landing page
+├── academic-template-form.html           # Academic-focused form
+├── business-template-form.html           # Business & corporate form
+├── customer-service-template-form.html   # Customer service resume
+├── entry-level-template-form.html        # Entry-level resume
+├── healthcare-template-form.html         # Healthcare resume
+├── image-upload-template-form.html       # Creative/visual resume
+├── project-management-template-form.html # Project management
+├── sales-marketing-template-form.html    # Sales & marketing resume
+├── tech-template-form.html               # Developer/Tech resume
 
-sales-marketing-template-form.html: Form for sales and marketing resumes, focusing on quantifiable achievements. 
+🧪 Technical Details
+HTML5 – Core form and content structure
 
-tech-template-form.html: Form for developer and tech-focused resumes, with detailed sections for skills and projects. 
+Tailwind CSS – Utility-first CSS framework for responsive design
 
-4. Usage 
+Lucide Icons – Lightweight SVG icons for UI
 
-To use the Resume AI Studio: 
+Google Fonts – Professional typography (e.g., Inter, Montserrat, Playfair Display)
 
-Open index.html in your web browser. 
+JavaScript (Vanilla) – Handles dynamic fields, AI integration, form logic
 
-Navigate to the Templates section and click on the template that best suits your career field. 
+Gemini API – Used for ATS scoring, AI rewriting, and cover letter generation
 
-Fill out the form with your personal information, experience, education, skills, and other relevant details. 
+html2pdf.js – Converts resume to downloadable PDF
 
-Optional Features: 
+👥 Contributors
+This project was developed by a collaborative team of developers.
+We appreciate each member's effort and commitment to building Resume AI Studio:
 
-ATS Optimizer: Paste a job description into the "Job Description" field and check the "ATS Optimizer" box to get an analysis. 
+Keamo0713 – Project Lead 
 
-AI Enhancer: Check the "AI Enhancer" box to improve the phrasing and impact of your resume content. 
 
-Create Cover Letter: Check the "Create Cover Letter" box (and provide a Job Description) to generate a tailored cover letter. 
-
-Click "Generate My Resume" to see a preview of your resume. 
-
-Select a Theme: For templates like "Tech & IT," you can switch between "Professional," "Modern," and "Creative" themes to visualize different layouts. 
-
-Download or Copy: Use the provided buttons to download your resume as a PDF, DOCX, HTML file, or copy its content to your clipboard. 
-
-Reset Form: Click "Reset Form" to clear all inputs and start fresh. 
-
-5. Templates Available 
-
-Each template is tailored with relevant sections and pre-populated placeholders to guide the user. 
-
-Academic & Research: Focuses on publications, research, grants, and teaching. 
-
-Business & Corporate: Standard business-oriented sections with emphasis on professional achievements. 
-
-Customer Service: Highlights customer service metrics and achievements. 
-
-Entry-Level: Designed for recent graduates or those with limited experience, emphasizing projects and an objective. 
-
-Healthcare: Includes sections for certifications, licenses, and clinical rotations. 
-
-Creative & Visual: Ideal for creative fields, featuring a portfolio/website link. 
-
-Project Management: Emphasizes project experience, roles, and certifications. 
-
-Sales & Marketing: Stresses quantifiable sales/marketing achievements. 
-
-Developer & Tech-Focused: Detailed sections for technical skills, specific projects, and GitHub links. 
-
-6. AI Capabilities 
-
-The "Resume AI Studio" integrates AI via the Gemini API to offer powerful enhancements: 
-
-ATS Optimization: By providing a job description, the AI analyzes keywords and formatting, offering an ATS compatibility score, a detailed analysis of keyword density, formatting, action verbs, and quantifiable achievements, along with suggested best-fit roles. 
-
-AI Enhancement: The AI refines and expands on the user's input, improving clarity, conciseness, and impact, using stronger language to highlight accomplishments. 
-
-Cover Letter Generation: When requested, the AI crafts a personalized cover letter that highlights relevant skills and experiences from the resume, tailored to the provided job description. 
-
-7. Technical Details 
-
-HTML5: Structured content for forms and display. 
-
-Tailwind CSS: Used for all styling, ensuring a clean, modern, and responsive user interface. 
-
-Lucide Icons: Provides a library of high-quality SVG icons for visual elements. 
-
-html2pdf.js: Library for generating PDF documents from HTML content. 
-
-Google Fonts: Used for diverse typography across different templates to match professional themes (Inter, Cormorant Garamond, Lato, Roboto Mono, Montserrat, Playfair Display). 
-
-JavaScript (Vanilla JS): Handles all form interactions, dynamic content addition/removal, data collection, API calls to the Gemini model, and resume generation logic. 
-
-Gemini API: Used for advanced features like ATS analysis, AI content enhancement, and cover letter generation, fetching structured JSON responses. 
+📄 License
+This project is open-source and available under the MIT License.
+Feel free to use, modify, and contribute.
 ![image](https://github.com/user-attachments/assets/0c6cf1ad-1eaf-41dd-870f-4b583fee8b42)
 ![image](https://github.com/user-attachments/assets/6813c590-3927-4f92-8374-4f1554c737d9)
 ![image](https://github.com/user-attachments/assets/4d1a4b2e-e0c1-4ee0-9f47-192c66883a5a)
