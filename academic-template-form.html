@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Resume Details</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+        }
+            h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 100;
+                font-style: normal;
+            }
+        .gradient-bg {
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+        }
+        /* Custom styling for checkbox buttons */
+        .checkbox-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 600; /* font-semibold */
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .checkbox-button input[type="checkbox"] {
+            display: none; /* Hide the default checkbox */
+        }
+        .checkbox-button.checked {
+            background-color: #4f46e5; /* Indigo-600 */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+        }
+        .checkbox-button:not(.checked) {
+            background-color: #e0e7ff; /* Blue-100 */
+            color: #4338ca; /* Indigo-700 */
+            border-color: #a5b4fc; /* Blue-300 */
+        }
+        .checkbox-button:hover:not(.checked) {
+            background-color: #c7d2fe; /* Blue-200 */
+        }
+        .checkbox-button svg {
+            margin-right: 0.5rem; /* Space between icon and text */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Header/Navigation - Matches index.html layout -->
+    <header class="bg-gradient-to-r from-pink-500 to-orange-500 text-white py-8 shadow-lg">
+         <div class="container mx-auto px-4 flex items-center justify-center space-x-8">
+            <!-- Logo and Title -->
+               <img src="ResAI.png" alt="Logo" class="w-16 h-16 rounded-full object-cover shadow-lg transform transition duration-300 hover:scale-110 flex-shrink-0">
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-white custom-text-shadow">Resume AI Studio</h1>
+            
+            <!-- Navigation links -->
+            <nav class="flex-shrink-0">
+                <ul class="flex space-x-4 sm:space-x-6 text-lg font-medium">
+                    <li><a href="index.html" class="hover:text-pink-100 transition duration-300 whitespace-nowrap">Home</a></li>
+                    <!-- Add more navigation items if needed -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- Main Content Area - Form -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Academic & Research Template</h2>
+
+            <form id="academicResumeForm" class="space-y-6">
+                <!-- Personal Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Personal Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Dr. Alex Researcher">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="alex.researcher@example.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="+123 456 7890">
+                        </div>
+                        <div>
+                            <label for="researchGate" class="block text-sm font-medium text-gray-700">ResearchGate/Academia.edu Profile (Optional)</label>
+                            <input type="url" id="researchGate" name="researchGate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="https://researchgate.net/profile/Alex_Researcher">
+                        </div>
+                        <div>
+                            <label for="googleScholar" class="block text-sm font-medium text-gray-700">Google Scholar Profile (Optional)</label>
+                            <input type="url" id="googleScholar" name="googleScholar" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="https://scholar.google.com/citations?user=...">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="summary" class="block text-sm font-medium text-gray-700">Academic Summary / Research Interests</label>
+                        <textarea id="summary" name="summary" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Ph.D. candidate with expertise in quantum computing and a passion for interdisciplinary research..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Education Section (Primary focus for academic) -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Education</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="degree1" class="block text-sm font-medium text-gray-700">Degree/Qualification</label>
+                            <input type="text" id="degree1" name="degree1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Ph.D. in Theoretical Physics">
+                        </div>
+                        <div>
+                            <label for="university1" class="block text-sm font-medium text-gray-700">University/Institution</label>
+                            <input type="text" id="university1" name="university1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="National Research University">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="gradYear1" class="block text-sm font-medium text-gray-700">Graduation Year</label>
+                                <input type="number" id="gradYear1" name="gradYear1" min="1900" max="2099" step="1" value="2025" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="thesisTitle1" class="block text-sm font-medium text-gray-700">Thesis/Dissertation Title (Optional)</label>
+                                <input type="text" id="thesisTitle1" name="thesisTitle1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Quantum Entanglement in Superconducting Circuits">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-md shadow-sm">Add More Education</button>
+                </div>
+
+                <!-- Publications Section -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Publications</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="publicationTitle1" class="block text-sm font-medium text-gray-700">Publication Title</label>
+                            <input type="text" id="publicationTitle1" name="publicationTitle1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Advancements in Quantum Cryptography">
+                        </div>
+                        <div>
+                            <label for="journalVenue1" class="block text-sm font-medium text-gray-700">Journal / Conference Venue</label>
+                            <input type="text" id="journalVenue1" name="journalVenue1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Nature Physics">
+                        </div>
+                        <div>
+                            <label for="publicationLink1" class="block text-sm font-medium text-gray-700">Link (DOI, arXiv, etc.)</label>
+                            <input type="url" id="publicationLink1" name="publicationLink1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="https://arxiv.org/abs/...">
+                        </div>
+                    </div>
+                    <button type="button" class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-md shadow-sm">Add More Publications</button>
+                </div>
+
+                <!-- Research Experience Section -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Research Experience</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="researchRole1" class="block text-sm font-medium text-gray-700">Role/Position</label>
+                            <input type="text" id="researchRole1" name="researchRole1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Research Assistant">
+                        </div>
+                        <div>
+                            <label for="researchInstitution1" class="block text-sm font-medium text-gray-700">Institution/Lab</label>
+                            <input type="text" id="researchInstitution1" name="researchInstitution1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Quantum Computing Lab">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="researchStartDate1" class="block text-sm font-medium text-gray-700">Start Date</label>
+                                <input type="month" id="researchStartDate1" name="researchStartDate1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="researchEndDate1" class="block text-sm font-medium text-gray-700">End Date</label>
+                                <input type="month" id="researchEndDate1" name="researchEndDate1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="researchDescription1" class="block text-sm font-medium text-gray-700">Description of Research</label>
+                            <textarea id="researchDescription1" name="researchDescription1" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Conducted experiments on superconducting qubits, contributing to data analysis and model development..."></textarea>
+                        </div>
+                    </div>
+                    <button type="button" class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-md shadow-sm">Add More Research Experience</button>
+                </div>
+
+                <!-- Generate Resume Button -->
+                <div class="pt-6 border-t mt-8 text-center">
+                    <button type="button" id="generateResumeBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-full shadow-lg transform transition duration-300 hover:scale-105 mb-4">
+                        Generate My Resume
+                    </button>
+                    <!-- New Checkbox Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+                        <label class="checkbox-button" id="atsOptimizerBtn">
+                            <input type="checkbox" id="atsOptimizer" name="atsOptimizer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                            ATS Optimizer
+                        </label>
+                        <label class="checkbox-button" id="aiEnhancerBtn">
+                            <input type="checkbox" id="aiEnhancer" name="aiEnhancer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="M9.916 1.411a2 2 0 0 1 3.168 0l2.002 3.999 4.397.904a2 2 0 0 1 1.01 3.516l-2.88 2.518 1.115 4.1a2 2 0 0 1-2.907 2.105L12 17.5l-3.907 2.29a2 2 0 0 1-2.907-2.105l1.115-4.1-2.88-2.518a2 2 0 0 1 1.01-3.516l4.397-.904Z"/></svg>
+                            AI Enhancer
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer - Matches index.html footer -->
+  <footer class="bg-pink-100 text-pink-800 py-6 mt-12 shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <p>Designed with passion by Py# - &copy; 2025 Resume AI Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('generateResumeBtn').addEventListener('click', function() {
+            console.log('Generate Resume button clicked for Academic template!');
+        });
+
+        // Functionality for the custom checkbox buttons
+        function setupCheckboxButton(buttonId, checkboxId) {
+            const button = document.getElementById(buttonId);
+            const checkbox = document.getElementById(checkboxId);
+
+            // Set initial state based on checkbox checked property
+            if (checkbox.checked) {
+                button.classList.add('checked');
+            } else {
+                button.classList.remove('checked');
+            }
+
+            button.addEventListener('click', function() {
+                checkbox.checked = !checkbox.checked; // Toggle checkbox state
+                if (checkbox.checked) {
+                    button.classList.add('checked');
+                } else {
+                    button.classList.remove('checked');
+                }
+                console.log(`${buttonId} is now: ${checkbox.checked ? 'Enabled' : 'Disabled'}`);
+            });
+        }
+
+        // Initialize the custom checkbox buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            setupCheckboxButton('atsOptimizerBtn', 'atsOptimizer');
+            setupCheckboxButton('aiEnhancerBtn', 'aiEnhancer');
+            // Ensure Lucide icons are correctly rendered after DOM is loaded
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

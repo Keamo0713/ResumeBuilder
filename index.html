@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Resume Builder</title>
+        <link rel="icon" type="image/png" href="/Resume%2520Builder/ResAI.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <!-- h1 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            main {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 100; /* For bold headings */
+            }
+            
+            body {
+                font-family: 'Montserrat', sans-serif;
+                background-color: #F9FAFB; /* Very light gray */
+            }
+            
+            .template-card {
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                cursor: pointer;
+            }
+            
+            .template-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            /* Custom text shadow for the main heading (adjusted for light background) */
+            .custom-text-shadow {
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            }
+            
+            h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 100;
+                font-style: normal;
+            }
+            
+            h2 {
+                font-family: "Cookie", cursive;
+                font-weight: 200;
+                font-style: normal;
+            }
+            
+            p {
+                font-family: "Lato", sans-serif;
+                font-weight: 500;
+                font-style: normal;
+            }
+        </style>
+    </head>
+    <body class="flex flex-col min-h-screen">
+    <header class="bg-gradient-to-r from-pink-500 to-orange-500 text-white py-8 shadow-lg">
+        <div class="container mx-auto px-4 flex items-center justify-center space-x-8">
+            <img src="ResAI.png" alt="Logo" class="w-16 h-16 rounded-full object-cover shadow-lg transform transition duration-300 hover:scale-110 flex-shrink-0">
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-white custom-text-shadow">Resume AI Studio</h1>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 flex items-center justify-center">
+
+        <section id="home-section" class="text-center mb-4 py-16 bg-gradient-to-br from-white to-pink-50 rounded-xl shadow-lg relative overflow-hidden max-w-4xl w-full">
+            <div class="absolute inset-0 z-0 opacity-15" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM2 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            <div class="relative z-10"> <h2 class="text-5xl lg:text-6xl font-extrabold text-gray-800 mb-6 animated-heading pb-4 border-b-2 border-orange-400 inline-block px-8">Build Your Professional Resume in Minutes</h2>
+                <p class="text-xl text-gray-800 max-w-4xl mx-auto mb-8 animated-heading" style="animation-delay: 0.6s;">
+                    Our Resume AI Studio web app simplifies the process of creating stunning,
+                    impactful resumes. Choose from a variety of professionally designed templates,
+                    customize them with your information, and land your dream job with confidence.
+                </p>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+                    Each of our templates is meticulously crafted to meet specific career needs and industry standards.
+                    Whether you're in tech, business, healthcare, or just starting out, we have a template designed to highlight your unique strengths:
+                </p>
+                
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+                    Each template is crafted to assist you in effectively communicating your value to potential employers, ensuring your resume stands out in a competitive job market.
+                </p>
+                <button onclick="showTemplatesSection();"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full shadow-xl transform transition duration-300 hover:scale-105 animated-heading focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75" style="animation-delay: 0.9s;">
+                    Explore Templates
+                </button>
+            </div>
+        </section>
+
+        <section id="templates-section" class="mb-16 hidden max-w-6xl w-full mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-10">Choose Your Template</h2>
+
+            <div id="template-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center"
+                     onclick="showTemplate('business')">
+                    <img src="bus_logo.jpg" alt="Business Template Icon"
+                         class="mb-6 rounded-full border-4 border-green-400">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Professional & Corporate</h3>
+                    <p class="text-gray-600 mb-5">
+                        A clean, structured design ideal for corporate roles, traditional industries,
+                        and executive positions.
+                    </p>
+                    <div class="bg-green-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+                </div>
+                          <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center relative"
+     onclick="showTemplate('customer-service')">
+    <img src="cust_logo.jpg" alt="Customer Service Template Icon"
+         class="mb-6 rounded-full border-4 border-green-400">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Customer Service & Support</h3>
+    <p class="text-gray-600 mb-5">
+        Highlights problem-solving skills, communication, and customer satisfaction.
+    </p>
+    <div class="bg-green-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+</div>
+                  <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center"
+                     onclick="showTemplate('healthcare')">
+                    <img src="health_logo.png" alt="Healthcare Template Icon"
+                         class="mb-6 rounded-full border-4 border-green-400">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Healthcare & Medical</h3>
+                    <p class="text-gray-600 mb-5">
+                        Designed for medical professionals, showcasing certifications, clinical experience, and patient care.
+                    </p>
+                    <div class="bg-green-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+                </div> 
+                <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center"
+                     onclick="showTemplate('tech')">
+                    <img src="Dev_logo.png" alt="Tech Template Icon"
+                         class="mb-6 rounded-full border-4 border-orange-400">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Developer & Tech-Focused</h3>
+                    <p class="text-gray-600 mb-5">
+                        Highlight your GitHub, LinkedIn, and project links. Designed for developers, engineers,
+                        and IT professionals.
+                    </p>
+                    <div class="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+                </div>
+                         <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center"
+                     onclick="showTemplate('entry-level')">
+                    <img src="stud_logo.png" alt="Entry Level Template Icon"
+                         class="mb-6 rounded-full border-4 border-orange-400">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Entry-Level & Student</h3>
+                    <p class="text-gray-600 mb-5">
+                        A clean layout for recent graduates or those with limited experience, highlighting education and internships.
+                    </p>
+                    <div class="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+                </div>                           
+            <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center relative"
+     onclick="showTemplate('sales-marketing')">
+    <!-- Badge for "Under Construction" -->
+    <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+        Under Construction - preview available
+    </div>
+    <img src="sale_logo.png" alt="Sales Marketing Template Icon"
+         class="mb-6 rounded-full border-4 border-orange-400">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Sales & Marketing Pro</h3>
+    <p class="text-gray-600 mb-5">
+        Emphasizes achievements in sales quotas, campaigns, and client acquisition.
+    </p>
+    <div class="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+</div>
+                       <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center relative"
+     onclick="showTemplate('academic')">
+    <!-- Badge for "Under Construction" -->
+    <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+        Under Construction - preview available
+    </div>
+    <img src="acad_logo.jpg" alt="Academic Template Icon"
+         class="mb-6 rounded-full border-4 border-blue-400">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Academic & Research</h3>
+    <p class="text-gray-600 mb-5">
+        Ideal for researchers, students, and educators. Focuses on publications, conferences, and grants.
+    </p>
+    <div class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+</div>
+     <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center relative"
+     onclick="showTemplate('project-management')">
+    <!-- Badge for "Under Construction" -->
+    <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+        Under Construction - preview available
+    </div>
+    <img src="proj_logo.png" alt="Project Management Template Icon"
+         class="mb-6 rounded-full border-4 border-blue-400">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Project Management</h3>
+    <p class="text-gray-600 mb-5">
+        Focuses on methodologies, project timelines, and leadership in project delivery.
+    </p>
+    <div class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+</div>
+                <div class="template-card bg-white rounded-xl shadow-md p-8 flex flex-col items-center text-center relative"
+     onclick="showTemplate('image-upload')">
+    <!-- Badge for "Under Construction" -->
+    <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+        Under Construction - preview available
+    </div>
+    <img src="vis_logo.png" alt="Image Upload Template Icon"
+         class="mb-6 rounded-full border-4 border-blue-400">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Creative & Visual</h3>
+    <p class="text-gray-600 mb-5">
+        Perfect for artists, designers, and creatives who want to showcase their personality
+        and include a professional headshot.
+    </p>
+    <div class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-medium">Select Template</div>
+</div>
+            </div>
+
+            <div id="template-detail-view" class="hidden bg-white rounded-xl shadow-md p-8 mt-10 max-w-4xl w-full mx-auto">
+                <button onclick="hideTemplate()"
+                        class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full mb-6 transition duration-300">
+                    &larr; Back to Templates
+                </button>
+                <h3 id="template-detail-title" class="text-3xl font-bold text-gray-800 mb-6"></h3>
+                <div id="template-detail-content" class="text-lg text-gray-700 leading-relaxed">
+                    </div>
+                <button id="start-building-btn" class="mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
+                    Start Building with This Template
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <section id="call-to-action-section" class="bg-gradient-to-br from-pink-500 to-orange-500 text-white py-16 text-center shadow-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold mb-6">Ready to Build Your Dream Resume?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">
+                Join thousands of satisfied job seekers who have landed their desired roles using our intuitive Resume Builder.
+                Start crafting your professional story today and take the next step in your career journey.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-pink-100 text-pink-800 py-6 mt-12 shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <p>Designed with passion by Py# - &copy; 2025 Resume AI Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedTemplateId = ''; // Variable to store the currently selected template ID
+
+        // Function to show the home section and hide others
+        function showHomeSection() {
+            document.getElementById('home-section').classList.remove('hidden');
+            document.getElementById('templates-section').classList.add('hidden');
+            document.getElementById('template-detail-view').classList.add('hidden');
+            // Ensure the new call-to-action section is visible on the home page if desired, or hide it.
+            // For now, it will always be visible as it's outside the main switching logic.
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        }
+
+        // Function to show the templates section and hide others
+        function showTemplatesSection() {
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('templates-section').classList.remove('hidden');
+            document.getElementById('template-detail-view').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        }
+
+        function showTemplate(templateId) {
+            selectedTemplateId = templateId; // Store the ID
+            const cardsContainer = document.getElementById('template-cards-container');
+            const detailView = document.getElementById('template-detail-view');
+            const detailTitle = document.getElementById('template-detail-title');
+            const detailContent = document.getElementById('template-detail-content');
+
+            cardsContainer.classList.add('hidden');
+            detailView.classList.remove('hidden');
+
+            let title = '';
+            let content = '';
+
+            switch (templateId) {
+                case 'image-upload':
+                    title = 'Creative & Visual Template';
+                    content = `
+                        <p class="mb-4">This template is designed for individuals in creative fields, such as graphic designers, photographers, artists, or anyone who wants to add a personal touch to their resume. It prominently features a dedicated section for a professional headshot or a portfolio image, allowing you to make a strong visual first impression.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Space for a professional image upload.</li>
+                            <li>Emphasis on design skills and creative projects.</li>
+                            <li>Flexible layout to highlight portfolio links.</li>
+                            <li>Modern, visually appealing aesthetics.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-3 gap-4 text-sm text-gray-600">
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <div class="w-20 h-20 bg-blue-200 rounded-full mx-auto mb-2 flex items-center justify-center text-blue-800">Photo</div>
+                                    <p class="font-medium">John Doe</p>
+                                    <p>Creative Designer</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Summary:</p>
+                                    <p class="text-xs">Passionate designer with expertise in UI/UX...</p>
+                                </div>
+                                <div class="col-span-3 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Experience:</p>
+                                    <p class="text-xs">Lead Designer at XYZ Corp...</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'business':
+                    title = 'Professional & Corporate Template';
+                    content = `
+                        <p class="mb-4">This template offers a polished, minimalist design, ideal for professionals in traditional industries like finance, marketing, administration, or management. Its clean lines and structured layout ensure clarity and readability, focusing on your accomplishments and career progression without distractions.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Classic, elegant design.</li>
+                            <li>Clear sections for experience, education, and skills.</li>
+                            <li>Emphasis on quantifiable achievements and professional background.</li>
+                            <li>Suitable for all corporate and traditional job applications.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Jane Smith</p>
+                                    <p class="text-xs">Senior Marketing Manager</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Professional Summary:</p>
+                                    <p class="text-xs">Results-driven manager with 10+ years experience...</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Experience:</p>
+                                    <p class="text-xs">ABC Solutions (2018-Present)</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Education:</p>
+                                    <p class="text-xs">MBA, University of Business</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'tech':
+                    title = 'Developer & Tech-Focused Template';
+                    content = `
+                        <p class="mb-4">This template is specifically tailored for software developers, IT professionals, data scientists, and engineers. It prioritizes showcasing your technical skills, programming languages, and, most importantly, links to your active GitHub repositories, LinkedIn profile, and significant personal or professional projects.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Prominent sections for GitHub, LinkedIn, and project URLs.</li>
+                            <li>Dedicated skill matrix for programming languages and tools.</li>
+                            <li>Clean, functional layout suitable for technical recruiters.</li>
+                            <li>Focus on practical application and technical contributions.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-3 gap-4 text-sm text-gray-600">
+                                <div class="col-span-3 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Alex Developer</p>
+                                    <p class="text-xs">Software Engineer | <a href="#" class="text-blue-600 hover:underline">GitHub</a> | <a href="#" class="text-blue-600 hover:underline">LinkedIn</a></p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Skills:</p>
+                                    <p class="text-xs">Python, JavaScript, React, AWS</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Projects:</p>
+                                    <p class="text-xs"><a href="#" class="text-blue-600 hover:underline">Project A</a>, <a href="#" class="text-blue-600 hover:underline">Project B</a></p>
+                                </div>
+                                <div class="col-span-3 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Work Experience:</p>
+                                    <p class="text-xs">Dev at Tech Solutions (2020-Present)</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'academic':
+                    title = 'Academic & Research Template';
+                    content = `
+                        <p class="mb-4">This template is designed for academics, researchers, and students pursuing higher education or scientific careers. This template emphasizes your scholarly contributions, research projects, publications, presentations, and grants. It provides dedicated sections to highlight your intellectual work and academic journey.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Dedicated sections for Publications (peer-reviewed articles, books, chapters).</li>
+                            <li>Space to list Conference Presentations and Posters.</li>
+                            <li>Areas for Research Interests and Funding/Grants.</li>
+                            <li>Clear presentation of academic history and awards.</li>
+                            <li>Suitable for CVs in academia and research institutions.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Dr. Emily Research</p>
+                                    <p class="text-xs">Postdoctoral Fellow</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Research Interests:</p>
+                                    <p class="text-xs">Quantum Physics, Material Science...</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Publications:</p>
+                                    <p class="text-xs">Journal of Science (2024)</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Education:</p>
+                                    <p class="text-xs">Ph.D. in Physics</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'sales-marketing':
+                    title = 'Sales & Marketing Pro Template';
+                    content = `
+                        <p class="mb-4">This template is crafted for sales professionals, marketing managers, and business development experts. It emphasizes quantifiable results, such as sales figures, revenue generated, client acquisition rates, and successful campaign outcomes. It allows you to showcase your ability to drive growth and achieve targets.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Focus on measurable achievements and KPIs.</li>
+                            <li>Sections for client testimonials or success stories (if applicable).</li>
+                            <li>Emphasis on communication, negotiation, and strategy skills.</li>
+                            <li>Visual elements to represent growth or market share (optional).</li>
+                            <li>Ideal for roles requiring strong business acumen.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Mark Growth</p>
+                                    <p class="text-xs">Senior Sales Executive</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Achievements:</p>
+                                    <p class="text-xs">Exceeded sales targets by 150% in FY23...</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Experience:</p>
+                                    <p class="text-xs">Sales Manager at Global Corp</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Skills:</p>
+                                    <p class="text-xs">Lead Generation, CRM, Market Analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'customer-service':
+                    title = 'Customer Service & Support Template';
+                    content = `
+                        <p class="mb-4">This template is designed for customer service representatives, support specialists, and client success managers. It highlights your ability to empathize, resolve issues efficiently, and maintain high levels of customer satisfaction. Focus is placed on communication skills, conflict resolution, and technical support capabilities.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Sections for customer satisfaction ratings or metrics.</li>
+                            <li>Emphasis on active listening and problem-solving.</li>
+                            <li>Showcase experience with CRM software and ticketing systems.</li>
+                            <li>Highlight multi-channel support experience (phone, email, chat).</li>
+                            <li>Suitable for roles focused on client interaction and retention.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Sarah Helper</p>
+                                    <p class="text-xs">Customer Support Specialist</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Summary:</p>
+                                    <p class="text-xs">Dedicated to resolving customer issues with empathy...</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Experience:</p>
+                                    <p class="text-xs">Customer Service Rep at ConnectCo</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Skills:</p>
+                                    <p class="text-xs">Communication, Problem-Solving, Zendesk</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'healthcare':
+                    title = 'Healthcare & Medical Template';
+                    content = `
+                        <p class="mb-4">This template is tailored for medical professionals, including nurses, doctors, therapists, and administrative staff in healthcare. It provides dedicated sections for licenses, certifications, clinical experience, patient care responsibilities, and adherence to medical protocols. Emphasis is placed on practical experience and specialized skills.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Prominent display of medical licenses and certifications.</li>
+                            <li>Detailed sections for clinical rotations and specializations.</li>
+                            <li>Emphasis on patient care, safety protocols, and medical procedures.</li>
+                            <li>Space for research or publications in medical fields.</li>
+                            <li>Clean and professional layout for highly regulated industries.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Dr. Olivia Healer</p>
+                                    <p class="text-xs">Registered Nurse | BLS Certified</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Clinical Experience:</p>
+                                    <p class="text-xs">Emergency Department, City Hospital</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Skills:</p>
+                                    <p class="text-xs">Patient Assessment, Medication Admin</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Education:</p>
+                                    <p class="text-xs">BSN, Medical University</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'project-management':
+                    title = 'Project Management Template';
+                    content = `
+                        <p class="mb-4">This template is tailored for project managers, program managers, and team leads. It focuses on showcasing your experience with project methodologies (Agile, Scrum, Waterfall), successful project deliveries, budget management, and team leadership. It allows you to highlight specific projects, their outcomes, and your role in their success.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Sections for key projects with results and challenges.</li>
+                            <li>Emphasis on project methodologies and tools (Jira, Asana).</li>
+                            <li>Highlight budget and resource management capabilities.</li>
+                            <li>Showcase leadership and cross-functional team coordination.</li>
+                            <li>Ideal for roles requiring strong organizational and leadership skills.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">David PM</p>
+                                    <p class="text-xs">Senior Project Manager | PMP Certified</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Key Projects:</p>
+                                    <p class="text-xs">Led software implementation (2023)...</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Methodologies:</p>
+                                    <p class="text-xs">Agile, Scrum, Waterfall</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Experience:</p>
+                                    <p class="text-xs">Project Lead at Innovate Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'entry-level':
+                    title = 'Entry-Level & Student Template';
+                    content = `
+                        <p class="mb-4">This template is perfect for recent graduates, students, or individuals with limited professional experience. It focuses on highlighting academic achievements, relevant coursework, internships, volunteer work, extracurricular activities, and transferable skills gained from various experiences. It's designed to help you make a strong impression with foundational qualifications.</p>
+                        <p class="mb-4"><strong>Key Features:</strong></p>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Strong emphasis on education, GPA, and relevant coursework.</li>
+                            <li>Sections for internships, volunteer work, and part-time jobs.</li>
+                            <li>Highlight extracurricular activities and leadership roles.</li>
+                            <li>Focus on transferable skills relevant to entry-level positions.</li>
+                            <li>Clean, easy-to-read layout to present limited experience effectively.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2">Example Layout (Mockup):</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Student Success</p>
+                                    <p class="text-xs">Recent Graduate | Aspiring Professional</p>
+                                </div>
+                                <div class="col-span-2 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Education:</p>
+                                    <p class="text-xs">Bachelor of Arts, University College (2025)</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-medium">Internships:</p>
+                                    <p class="text-xs">Marketing Intern at StartupX</p>
+                                </div>
+                                <div class="col-span-1 p-2 bg-gray-50 rounded-md">
+                                    <p class="font-xs">Skills:</p>
+                                    <p class="text-xs">Communication, Teamwork, Microsoft Office</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    title = 'Template Details';
+                    content = '<p>Select a template to view its details.</p>';
+            }
+
+            detailTitle.innerText = title;
+            detailContent.innerHTML = content;
+        }
+
+        function hideTemplate() {
+            document.getElementById('template-cards-container').classList.remove('hidden');
+            document.getElementById('template-detail-view').classList.add('hidden');
+        }
+
+        // Event listener for the "Start Building with This Template" button
+        document.getElementById('start-building-btn').addEventListener('click', function() {
+            // Mapping template IDs to their respective form pages
+            const templateFormPages = {
+                'tech': 'tech-template-form.html',
+                'image-upload': 'image-upload-template-form.html',
+                'business': 'business-template-form.html',
+                'academic': 'academic-template-form.html',
+                'sales-marketing': 'sales-marketing-template-form.html',
+                'customer-service': 'customer-service-template-form.html',
+                'healthcare': 'healthcare-template-form.html',
+                'project-management': 'project-management-template-form.html',
+                'entry-level': 'entry-level-template-form.html',
+            };
+
+            const targetPage = templateFormPages[selectedTemplateId];
+
+            if (targetPage) {
+                window.location.href = targetPage;
+            } else {
+                // Fallback for any unhandled template IDs
+                // Using a custom message instead of alert for better UX, though still a placeholder
+                const messageBox = document.createElement('div');
+                messageBox.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-xl text-center z-50';
+                messageBox.innerHTML = `
+                    <p>Functionality for <strong>${selectedTemplateId}</strong> template coming soon!</p>
+                    <button class="mt-2 bg-red-700 hover:bg-red-800 text-white font-bold py-1 px-3 rounded" onclick="this.parentNode.remove()">Close</button>
+                `;
+                document.body.appendChild(messageBox);
+            }
+        });
+
+        // Initial state: show home section
+        document.addEventListener('DOMContentLoaded', showHomeSection);
+    </script>
+</body>
+</html>

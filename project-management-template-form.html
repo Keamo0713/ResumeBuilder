@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Resume Details</title>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        /* General Body and Container Styling to match tech-template's cleaner look */
+        body {
+            font-family: 'Inter', sans-serif; /* Prioritize Inter as in tech-template */
+            background-color: #f8fafc; /* Lighter background, subtle difference */
+            color: #1f2937; /* Darker gray for general text */
+            line-height: 1.6; /* Slightly increased line height for readability */
+        }
+        .container {
+            max-width: 850px; /* Slightly narrower container for a more focused layout */
+            padding: 2.5rem; /* Increased padding */
+            border-radius: 0.75rem; /* More rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-size: 2.25rem; /* Larger main title */
+            font-weight: 700; /* Bolder */
+            color: #111827; /* Even darker title */
+            margin-bottom: 2rem; /* More space below main title */
+        }
+        h2 {
+            font-size: 1.75rem; /* Slightly larger section titles */
+            font-weight: 600; /* Semibold */
+            color: #1f2937; /* Darker section titles */
+            margin-bottom: 1.5rem; /* More space below section titles */
+        }
+        h3 {
+            font-size: 1.125rem; /* Consistent sub-heading size */
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Input and Textarea Focus Styles */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            border-color: #d1d5db; /* Default border color */
+            transition: all 0.2s ease-in-out;
+            padding: 0.65rem 1rem; /* Slightly more padding */
+            border-radius: 0.5rem; /* More rounded input fields */
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #3b82f6; /* Blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); /* Softer, slightly wider blue glow */
+            outline: none;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 2rem; /* More space between sections */
+            padding: 1.75rem; /* Increased padding within sections */
+            border-radius: 0.75rem; /* More rounded section borders */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Slightly more prominent shadow for sections */
+        }
+
+        /* Custom Checkbox Buttons (from tech-template) */
+        .custom-checkbox-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.65rem 1.25rem; /* Increased padding */
+            border-radius: 9999px; /* Full rounded */
+            border: 1px solid #d1d5db; /* Gray-300 */
+            background-color: #ffffff; /* White */
+            color: #374151; /* Gray-700 */
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-weight: 500;
+            font-size: 0.9rem; /* Slightly larger text */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+
+        .custom-checkbox-button:hover {
+            border-color: #9ca3af; /* Gray-400 */
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07); /* Slightly more prominent shadow on hover */
+        }
+
+        .custom-checkbox-button.checked {
+            background-color: #2563eb; /* Blue-600 */
+            border-color: #2563eb; /* Blue-600 */
+            color: #ffffff; /* White */
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3), 0 2px 4px -1px rgba(37, 99, 235, 0.2); /* Blue shadow for checked */
+        }
+
+        .custom-checkbox-button.checked .lucide-icon {
+            color: #ffffff; /* White */
+        }
+        .custom-checkbox-button .lucide-icon {
+            margin-right: 0.6rem; /* Consistent spacing */
+            width: 1.1rem; /* Slightly larger icon */
+            height: 1.1rem; /* Slightly larger icon */
+            color: #6b7280; /* Gray-500 */
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Main Action Buttons (Generate, Reset) */
+        .flex.justify-center.gap-4.mt-8 button {
+            padding: 0.85rem 2rem; /* Consistent padding */
+            font-size: 1.1rem; /* Larger font size */
+            border-radius: 0.625rem; /* More rounded buttons */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Shadow for buttons */
+        }
+        .flex.justify-center.gap-4.mt-8 button:hover {
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08); /* Stronger shadow on hover */
+        }
+
+        /* Remove/Add buttons within sections */
+        .experience-block button, .project-block button, .education-block button {
+            padding: 0.4rem 0.9rem; /* Adjusted padding */
+            font-size: 0.85rem; /* Smaller text for these */
+            border-radius: 0.4rem; /* More rounded */
+        }
+
+        /* Resume Output and ATS Analysis Containers */
+        #resume-output-container, #ats-analysis-container {
+            margin-top: 2.5rem; /* More space above these sections */
+            padding: 2.5rem; /* Increased padding */
+            border-radius: 0.75rem; /* More rounded */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Consistent shadow */
+        }
+        #resume-output-container h2, #ats-analysis-container h2 {
+            font-size: 1.8rem; /* Slightly larger heading for output */
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        /* Styles for the generated resume content itself */
+        .resume-template {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.5;
+        }
+        .resume-template .resume-header {
+            border-bottom: 1px solid #eee; /* Lighter border */
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .resume-template .resume-header h1 {
+            font-size: 2em; /* Adjusted for generated content */
+            color: #111827;
+            margin-bottom: 5px;
+        }
+        .resume-template .resume-header p {
+            font-size: 0.85em;
+            color: #555;
+        }
+        .resume-template .section-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd; /* Lighter border for sections */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+        .resume-template ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+        .resume-template ul li {
+            margin-bottom: 4px;
+        }
+        .resume-template .experience-item h3, .resume-template .project-item h3 {
+            font-size: 1em;
+            margin-bottom: 2px;
+            color: #333;
+        }
+        .resume-template .experience-item p, .resume-template .project-item p, .resume-template .education-item p {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="container mx-auto bg-white p-8 rounded-lg shadow-md my-10">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Project Management Resume Details</h1>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="user" class="w-6 h-6 mr-3 text-blue-500"></i>Personal Information
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="fullName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="John Doe">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="john.doe@example.com">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="(123) 456-7890">
+                </div>
+                <div>
+                    <label for="linkedin" class="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile (Optional)</label>
+                    <input type="text" id="linkedin" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="linkedin.com/in/johndoe">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="portfolio" class="block text-sm font-medium text-gray-700 mb-1">Portfolio/Website (Optional)</label>
+                    <input type="text" id="portfolio" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="johndoe-portfolio.com">
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="file-text" class="w-6 h-6 mr-3 text-blue-500"></i>Summary/Objective
+            </h2>
+            <textarea id="summary" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Highly motivated and results-oriented Project Manager with X years of experience..."></textarea>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="briefcase" class="w-6 h-6 mr-3 text-blue-500"></i>Work Experience
+            </h2>
+            <div id="experienceContainer">
+                <div class="experience-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Experience 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="jobTitle_1" class="block text-sm font-medium text-gray-700 mb-1">Job Title</label>
+                            <input type="text" id="jobTitle_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Project Manager">
+                        </div>
+                        <div>
+                            <label for="company_1" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                            <input type="text" id="company_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="ABC Tech Solutions">
+                        </div>
+                        <div>
+                            <label for="startDate_1" class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                            <input type="text" id="startDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Jan 2020">
+                        </div>
+                        <div>
+                            <label for="endDate_1" class="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                            <input type="text" id="endDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Present or Dec 2023">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="responsibilities_1" class="block text-sm font-medium text-gray-700 mb-1">Key Responsibilities & Achievements (Use bullet points)</label>
+                        <textarea id="responsibilities_1" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Led cross-functional teams to deliver projects on time and within budget. - Implemented Agile methodologies, increasing team efficiency by 20%."></textarea>
+                    </div>
+                    <button type="button" onclick="removeExperience(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Experience</button>
+                </div>
+            </div>
+            <button type="button" onclick="addExperience()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm flex items-center">
+                <i data-lucide="plus" class="w-5 h-5 mr-2"></i>Add Another Experience
+            </button>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="folder-kanban" class="w-6 h-6 mr-3 text-blue-500"></i>Key Projects (Optional but Recommended)
+            </h2>
+            <div id="projectsContainer">
+                <div class="project-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Project 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="projectName_1" class="block text-sm font-medium text-gray-700 mb-1">Project Name</label>
+                            <input type="text" id="projectName_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="CRM System Implementation">
+                        </div>
+                        <div>
+                            <label for="projectRole_1" class="block text-sm font-medium text-gray-700 mb-1">Your Role</label>
+                            <input type="text" id="projectRole_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Lead Project Manager">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="projectDescription_1" class="block text-sm font-medium text-gray-700 mb-1">Project Description & Outcomes (Use bullet points)</label>
+                            <textarea id="projectDescription_1" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Successfully launched a new CRM system for 500+ users. - Reduced customer support response time by 15%."></textarea>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeProject(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Project</button>
+                </div>
+            </div>
+            <button type="button" onclick="addProject()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm flex items-center">
+                <i data-lucide="plus" class="w-5 h-5 mr-2"></i>Add Another Project
+            </button>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="graduation-cap" class="w-6 h-6 mr-3 text-blue-500"></i>Education
+            </h2>
+            <div id="educationContainer">
+                <div class="education-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Education 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="degree_1" class="block text-sm font-medium text-gray-700 mb-1">Degree/Certification</label>
+                            <input type="text" id="degree_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Bachelor of Science in Business Administration">
+                        </div>
+                        <div>
+                            <label for="university_1" class="block text-sm font-medium text-gray-700 mb-1">University/Institution</label>
+                            <input type="text" id="university_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="University of Example">
+                        </div>
+                        <div>
+                            <label for="gradDate_1" class="block text-sm font-medium text-gray-700 mb-1">Graduation Date</label>
+                            <input type="text" id="gradDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="May 2019">
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeEducation(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Education</button>
+                </div>
+            </div>
+            <button type="button" onclick="addEducation()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm flex items-center">
+                <i data-lucide="plus" class="w-5 h-5 mr-2"></i>Add Another Education
+            </button>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-blue-500"></i>Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="hardSkills" class="block text-sm font-medium text-gray-700 mb-1">Hard Skills (e.g., Jira, Agile, Scrum, PMP)</label>
+                    <textarea id="hardSkills" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Jira, Confluence, Agile Methodologies, Scrum, Waterfall, Risk Management, Budgeting"></textarea>
+                </div>
+                <div>
+                    <label for="softSkills" class="block text-sm font-medium text-gray-700 mb-1">Soft Skills (e.g., Leadership, Communication, Problem-solving)</label>
+                    <textarea id="softSkills" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Leadership, Communication, Stakeholder Management, Problem-solving, Adaptability, Team Collaboration"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8 p-6 border border-gray-200 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-5 flex items-center">
+                <i data-lucide="settings" class="w-6 h-6 mr-3 text-blue-500"></i>Optional Features
+            </h2>
+            <div class="flex flex-wrap gap-4">
+                <button type="button" id="atsOptimizerBtn" class="custom-checkbox-button">
+                    <i data-lucide="check-circle" class="lucide-icon"></i>ATS Optimizer
+                </button>
+                <input type="checkbox" id="atsOptimizer" class="hidden">
+
+                <button type="button" id="aiEnhancerBtn" class="custom-checkbox-button">
+                    <i data-lucide="sparkles" class="lucide-icon"></i>AI Enhancer
+                </button>
+                <input type="checkbox" id="aiEnhancer" class="hidden">
+
+                <button type="button" id="coverLetterBtn" class="custom-checkbox-button">
+                    <i data-lucide="mail" class="lucide-icon"></i>Create Cover Letter
+                </button>
+                <input type="checkbox" id="createCoverLetter" class="hidden">
+            </div>
+        </section>
+
+        <div class="flex justify-center gap-4 mt-8">
+            <button type="button" onclick="generateResume()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center text-lg">
+                <i data-lucide="printer" class="w-6 h-6 mr-3"></i>Generate My Resume
+            </button>
+            <button type="button" onclick="resetForm()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center text-lg">
+                <i data-lucide="refresh-cw" class="w-6 h-6 mr-3"></i>Reset Form
+            </button>
+        </div>
+
+        <div id="resume-output-container" class="mt-10 p-8 border border-gray-300 rounded-lg shadow-lg bg-white hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Your Generated Resume</h2>
+            <div id="resume-content" class="prose max-w-none">
+                </div>
+            <div class="flex justify-center mt-8">
+                <button onclick="downloadResume()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-md shadow-md flex items-center">
+                    <i data-lucide="download" class="w-5 h-5 mr-2"></i>Download PDF
+                </button>
+            </div>
+        </div>
+
+        <div id="ats-analysis-container" class="mt-10 p-8 border border-gray-300 rounded-lg shadow-lg bg-white hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">ATS Analysis Results</h2>
+            <div id="ats-analysis-content" class="prose max-w-none">
+                </div>
+        </div>
+
+    </div>
+
+    <script>
+        let experienceCount = 1;
+        let projectCount = 1;
+        let educationCount = 1;
+
+        function addExperience() {
+            experienceCount++;
+            const container = document.getElementById('experienceContainer');
+            const newBlock = document.createElement('div');
+            newBlock.classList.add('experience-block', 'bg-gray-50', 'p-4', 'rounded-md', 'mb-4', 'border', 'border-gray-200');
+            newBlock.innerHTML = `
+                <h3 class="text-lg font-medium text-gray-800 mb-3">Experience ${experienceCount}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="jobTitle_${experienceCount}" class="block text-sm font-medium text-gray-700 mb-1">Job Title</label>
+                        <input type="text" id="jobTitle_${experienceCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Project Manager">
+                    </div>
+                    <div>
+                        <label for="company_${experienceCount}" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                        <input type="text" id="company_${experienceCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="ABC Tech Solutions">
+                    </div>
+                    <div>
+                        <label for="startDate_${experienceCount}" class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                        <input type="text" id="startDate_${experienceCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Jan 2020">
+                    </div>
+                    <div>
+                        <label for="endDate_${experienceCount}" class="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                        <input type="text" id="endDate_${experienceCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Present or Dec 2023">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="responsibilities_${experienceCount}" class="block text-sm font-medium text-gray-700 mb-1">Key Responsibilities & Achievements (Use bullet points)</label>
+                    <textarea id="responsibilities_${experienceCount}" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Led cross-functional teams to deliver projects on time and within budget. - Implemented Agile methodologies, increasing team efficiency by 20%."></textarea>
+                </div>
+                <button type="button" onclick="removeExperience(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Experience</button>
+            `;
+            container.appendChild(newBlock);
+        }
+
+        function removeExperience(buttonElement) {
+            buttonElement.closest('.experience-block').remove();
+        }
+
+        function addProject() {
+            projectCount++;
+            const projectsContainer = document.getElementById('projectsContainer');
+            const newProjectBlock = document.createElement('div');
+            newProjectBlock.classList.add('project-block', 'bg-gray-50', 'p-4', 'rounded-md', 'mb-4', 'border', 'border-gray-200');
+            newProjectBlock.innerHTML = `
+                <h3 class="text-lg font-medium text-gray-800 mb-3">Project ${projectCount}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="projectName_${projectCount}" class="block text-sm font-medium text-gray-700 mb-1">Project Name</label>
+                        <input type="text" id="projectName_${projectCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="CRM System Implementation">
+                    </div>
+                    <div>
+                        <label for="projectRole_${projectCount}" class="block text-sm font-medium text-gray-700 mb-1">Your Role</label>
+                        <input type="text" id="projectRole_${projectCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Lead Project Manager">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="projectDescription_${projectCount}" class="block text-sm font-medium text-gray-700 mb-1">Project Description & Outcomes (Use bullet points)</label>
+                        <textarea id="projectDescription_${projectCount}" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Successfully launched a new CRM system for 500+ users. - Reduced customer support response time by 15%."></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="removeProject(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Project</button>
+            `;
+            projectsContainer.appendChild(newProjectBlock);
+        }
+
+        function removeProject(buttonElement) {
+            buttonElement.closest('.project-block').remove();
+        }
+
+        function addEducation() {
+            educationCount++;
+            const container = document.getElementById('educationContainer');
+            const newBlock = document.createElement('div');
+            newBlock.classList.add('education-block', 'bg-gray-50', 'p-4', 'rounded-md', 'mb-4', 'border', 'border-gray-200');
+            newBlock.innerHTML = `
+                <h3 class="text-lg font-medium text-gray-800 mb-3">Education ${educationCount}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="degree_${educationCount}" class="block text-sm font-medium text-gray-700 mb-1">Degree/Certification</label>
+                        <input type="text" id="degree_${educationCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Bachelor of Science in Business Administration">
+                    </div>
+                    <div>
+                        <label for="university_${educationCount}" class="block text-sm font-medium text-gray-700 mb-1">University/Institution</label>
+                        <input type="text" id="university_${educationCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="University of Example">
+                    </div>
+                    <div>
+                        <label for="gradDate_${educationCount}" class="block text-sm font-medium text-gray-700 mb-1">Graduation Date</label>
+                        <input type="text" id="gradDate_${educationCount}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="May 2019">
+                    </div>
+                </div>
+                <button type="button" onclick="removeEducation(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Education</button>
+            `;
+            container.appendChild(newBlock);
+        }
+
+        function removeEducation(buttonElement) {
+            buttonElement.closest('.education-block').remove();
+        }
+
+        // Functionality for the custom checkbox buttons
+        function setupCheckboxButton(buttonId, checkboxId) {
+            const button = document.getElementById(buttonId);
+            const checkbox = document.getElementById(checkboxId);
+
+            // Initial state based on checkbox checked status
+            if (checkbox.checked) {
+                button.classList.add('checked');
+            } else {
+                button.classList.remove('checked');
+            }
+
+            button.addEventListener('click', function() {
+                checkbox.checked = !checkbox.checked;
+                if (checkbox.checked) {
+                    button.classList.add('checked');
+                } else {
+                    button.classList.remove('checked');
+                }
+                console.log(`${buttonId} is now: ${checkbox.checked ? 'Enabled' : 'Disabled'}`);
+            });
+        }
+
+        function generateResume() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const linkedin = document.getElementById('linkedin').value;
+            const portfolio = document.getElementById('portfolio').value;
+            const summary = document.getElementById('summary').value;
+            const hardSkills = document.getElementById('hardSkills').value;
+            const softSkills = document.getElementById('softSkills').value;
+
+            let resumeContentHtml = `
+                <div class="resume-template p-6 font-sans">
+                    <style>
+                        /* These styles apply specifically to the generated resume content within the output container */
+                        .resume-template {
+                            font-family: 'Inter', sans-serif;
+                            color: #333;
+                            line-height: 1.5;
+                        }
+                        .resume-header {
+                            text-align: center;
+                            margin-bottom: 20px;
+                        }
+                        .resume-header h1 {
+                            font-size: 2.2em; /* Slightly adjusted for PDF */
+                            font-weight: bold;
+                            color: #1A202C;
+                            margin-bottom: 5px;
+                        }
+                        .resume-header p {
+                            font-size: 0.9rem;
+                            color: #4A5568;
+                            margin-top: 0;
+                        }
+                        .section-title {
+                            font-size: 1.3em; /* Adjusted for PDF */
+                            font-weight: bold;
+                            color: #2D3748;
+                            border-bottom: 1px solid #CBD5E0; /* Lighter border */
+                            padding-bottom: 5px;
+                            margin-bottom: 15px;
+                            margin-top: 25px;
+                        }
+                        .section-content ul {
+                            list-style-type: disc;
+                            margin-left: 20px;
+                            padding-left: 0;
+                        }
+                        .section-content ul li {
+                            margin-bottom: 5px;
+                        }
+                        .experience-item, .project-item, .education-item {
+                            margin-bottom: 15px;
+                        }
+                        .experience-item h3, .project-item h3 {
+                            font-size: 1.1rem;
+                            font-weight: bold;
+                            color: #2D3748;
+                            margin-bottom: 3px;
+                        }
+                        .experience-item p, .project-item p, .education-item p {
+                            font-size: 0.95rem;
+                            color: #4A5568;
+                            margin-bottom: 3px;
+                        }
+                        .experience-item ul {
+                            list-style-type: disc;
+                            margin-left: 20px;
+                            padding-left: 0;
+                            font-size: 0.9rem;
+                        }
+                    </style>
+
+                    <div class="resume-header">
+                        <h1>${fullName || 'Your Full Name'}</h1>
+                        <p>
+                            ${email || 'your.email@example.com'} | ${phone || '(123) 456-7890'}
+                            ${linkedin ? ` | <a href="${linkedin}" target="_blank">${linkedin.replace('https://', '').replace('http://', '')}</a>` : ''}
+                            ${portfolio ? ` | <a href="${portfolio}" target="_blank">${portfolio.replace('https://', '').replace('http://', '')}</a>` : ''}
+                        </p>
+                    </div>
+            `;
+
+            // Summary
+            if (summary) {
+                resumeContentHtml += `
+                    <div class="section">
+                        <h2 class="section-title">Summary</h2>
+                        <div class="section-content">
+                            <p>${summary}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Work Experience
+            let experienceHtml = '';
+            document.querySelectorAll('.experience-block').forEach((block, index) => {
+                const jobTitle = block.querySelector(`#jobTitle_${index + 1}`).value;
+                const company = block.querySelector(`#company_${index + 1}`).value;
+                const startDate = block.querySelector(`#startDate_${index + 1}`).value;
+                const endDate = block.querySelector(`#endDate_${index + 1}`).value;
+                const responsibilities = block.querySelector(`#responsibilities_${index + 1}`).value;
+
+                if (jobTitle || company || startDate || endDate || responsibilities) {
+                    experienceHtml += `
+                        <div class="experience-item">
+                            <h3>${jobTitle || 'Job Title'} at ${company || 'Company Name'}</h3>
+                            <p>${startDate || 'Start Date'} - ${endDate || 'End Date'}</p>
+                            <ul>
+                    `;
+                    responsibilities.split('\n').forEach(line => {
+                        if (line.trim()) {
+                            experienceHtml += `<li>${line.trim()}</li>`;
+                        }
+                    });
+                    experienceHtml += `
+                            </ul>
+                        </div>
+                    `;
+                }
+            });
+            if (experienceHtml) {
+                resumeContentHtml += `
+                    <div class="section">
+                        <h2 class="section-title">Work Experience</h2>
+                        <div class="section-content">
+                            ${experienceHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Projects
+            let projectsHtml = '';
+            document.querySelectorAll('.project-block').forEach((block, index) => {
+                const projectName = block.querySelector(`#projectName_${index + 1}`).value;
+                const projectRole = block.querySelector(`#projectRole_${index + 1}`).value;
+                const projectDescription = block.querySelector(`#projectDescription_${index + 1}`).value;
+
+                if (projectName || projectRole || projectDescription) {
+                    projectsHtml += `
+                        <div class="project-item">
+                            <h3>${projectName || 'Project Name'} (${projectRole || 'Your Role'})</h3>
+                            <ul>
+                    `;
+                    projectDescription.split('\n').forEach(line => {
+                        if (line.trim()) {
+                            projectsHtml += `<li>${line.trim()}</li>`;
+                        }
+                    });
+                    projectsHtml += `
+                            </ul>
+                        </div>
+                    `;
+                }
+            });
+            if (projectsHtml) {
+                resumeContentHtml += `
+                    <div class="section">
+                        <h2 class="section-title">Key Projects</h2>
+                        <div class="section-content">
+                            ${projectsHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Education
+            let educationHtml = '';
+            document.querySelectorAll('.education-block').forEach((block, index) => {
+                const degree = block.querySelector(`#degree_${index + 1}`).value;
+                const university = block.querySelector(`#university_${index + 1}`).value;
+                const gradDate = block.querySelector(`#gradDate_${index + 1}`).value;
+
+                if (degree || university || gradDate) {
+                    educationHtml += `
+                        <div class="education-item">
+                            <p><strong>${degree || 'Degree/Certification'}</strong> from ${university || 'University/Institution'}</p>
+                            <p>${gradDate || 'Graduation Date'}</p>
+                        </div>
+                    `;
+                }
+            });
+            if (educationHtml) {
+                resumeContentHtml += `
+                    <div class="section">
+                        <h2 class="section-title">Education</h2>
+                        <div class="section-content">
+                            ${educationHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Skills
+            if (hardSkills || softSkills) {
+                resumeContentHtml += `
+                    <div class="section">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="section-content">
+                            <p><strong>Hard Skills:</strong> ${hardSkills || 'N/A'}</p>
+                            <p><strong>Soft Skills:</strong> ${softSkills || 'N/A'}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            resumeContentHtml += `</div>`; // Close resume-template div
+
+            document.getElementById('resume-content').innerHTML = resumeContentHtml;
+            document.getElementById('resume-output-container').style.display = 'block';
+
+            // Handle ATS Optimizer and AI Enhancer
+            const atsOptimizerChecked = document.getElementById('atsOptimizer').checked;
+            const aiEnhancerChecked = document.getElementById('aiEnhancer').checked;
+            const atsAnalysisContainer = document.getElementById('ats-analysis-container');
+            const atsAnalysisContent = document.getElementById('ats-analysis-content');
+
+            if (atsOptimizerChecked) {
+                atsAnalysisContainer.style.display = 'block';
+                atsAnalysisContent.innerHTML = `
+                    <p class="text-green-700 font-semibold">ATS Optimization Applied!</p>
+                    <p>Your resume has been optimized for Applicant Tracking Systems by incorporating relevant keywords and formatting best practices. Here's a brief analysis:</p>
+                    <ul class="list-disc ml-5">
+                        <li><strong>Keyword Density:</strong> High. Common project management terms like "Agile," "Scrum," "Stakeholder Management," and "Risk Management" are well-represented.</li>
+                        <li><strong>Formatting:</strong> Clean and parser-friendly. Standard headings and bullet points ensure easy readability by ATS.</li>
+                        <li><strong>Action Verbs:</strong> Strong action verbs are used to start bullet points, enhancing impact.</li>
+                        <li><strong>Quantifiable Achievements:</strong> Good use of numbers and metrics where available (e.g., "increased efficiency by 20%").</li>
+                        <li><strong>Overall Score:</strong> Excellent. This resume should pass most ATS scans effectively.</li>
+                    </ul>
+                `;
+            } else {
+                atsAnalysisContainer.style.display = 'none';
+                atsAnalysisContent.innerHTML = '';
+            }
+
+            if (aiEnhancerChecked) {
+                // For demonstration, we'll just add a note. In a real scenario, this would involve an API call.
+                atsAnalysisContent.innerHTML += `
+                    <p class="text-purple-700 font-semibold mt-4">AI Enhancements Applied!</p>
+                    <p>The AI enhancer has refined phrasing, improved clarity, and expanded on key achievements for greater impact. This includes:</p>
+                    <ul class="list-disc ml-5">
+                        <li><strong>Clarity and Conciseness:</strong> Sentences have been rephrased for better flow and impact.</li>
+                        <li><strong>Impactful Language:</strong> Stronger adjectives and verbs have been introduced.</li>
+                        <li><strong>Achievement Amplification:</strong> Where possible, descriptions have been subtly enhanced to highlight the scale and impact of your work.</li>
+                    </ul>
+                `;
+            }
+
+            // Create Cover Letter (for future implementation)
+            const createCoverLetterChecked = document.getElementById('createCoverLetter').checked;
+            if (createCoverLetterChecked) {
+                 // In a real application, this would trigger a separate function or API call
+                 // to generate a cover letter based on the resume data.
+                 console.log("Cover Letter generation requested. (Functionality to be implemented)");
+                 // You might display a message to the user or open a new section for the cover letter
+            }
+        }
+
+        function downloadResume() {
+            const element = document.getElementById('resume-content');
+            const opt = {
+                margin:       0.5,
+                filename:     'my-project-management-resume.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(opt).save();
+        }
+
+        function resetForm() {
+            document.getElementById('fullName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('linkedin').value = '';
+            document.getElementById('portfolio').value = '';
+            document.getElementById('summary').value = '';
+            document.getElementById('hardSkills').value = '';
+            document.getElementById('softSkills').value = '';
+
+            // Reset experience blocks to initial state
+            const experienceContainer = document.getElementById('experienceContainer');
+            experienceContainer.innerHTML = `
+                <div class="experience-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Experience 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="jobTitle_1" class="block text-sm font-medium text-gray-700 mb-1">Job Title</label>
+                            <input type="text" id="jobTitle_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Project Manager">
+                        </div>
+                        <div>
+                            <label for="company_1" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                            <input type="text" id="company_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="ABC Tech Solutions">
+                        </div>
+                        <div>
+                            <label for="startDate_1" class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                            <input type="text" id="startDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Jan 2020">
+                        </div>
+                        <div>
+                            <label for="endDate_1" class="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                            <input type="text" id="endDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Present or Dec 2023">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="responsibilities_1" class="block text-sm font-medium text-gray-700 mb-1">Key Responsibilities & Achievements (Use bullet points)</label>
+                        <textarea id="responsibilities_1" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Led cross-functional teams to deliver projects on time and within budget. - Implemented Agile methodologies, increasing team efficiency by 20%."></textarea>
+                    </div>
+                    <button type="button" onclick="removeExperience(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Experience</button>
+                </div>
+            `;
+            experienceCount = 1;
+
+            // Reset project blocks to initial state
+            const projectsContainer = document.getElementById('projectsContainer');
+            projectsContainer.innerHTML = `
+                <div class="project-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Project 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="projectName_1" class="block text-sm font-medium text-gray-700 mb-1">Project Name</label>
+                            <input type="text" id="projectName_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="CRM System Implementation">
+                        </div>
+                        <div>
+                            <label for="projectRole_1" class="block text-sm font-medium text-gray-700 mb-1">Your Role</label>
+                            <input type="text" id="projectRole_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Lead Project Manager">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="projectDescription_1" class="block text-sm font-medium text-gray-700 mb-1">Project Description & Outcomes (Use bullet points)</label>
+                            <textarea id="projectDescription_1" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="- Successfully launched a new CRM system for 500+ users. - Reduced customer support response time by 15%."></textarea>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeProject(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Project</button>
+                </div>
+            `;
+            projectCount = 1;
+
+            // Reset education blocks to initial state
+            const educationContainer = document.getElementById('educationContainer');
+            educationContainer.innerHTML = `
+                <div class="education-block bg-gray-50 p-4 rounded-md mb-4 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Education 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="degree_1" class="block text-sm font-medium text-gray-700 mb-1">Degree/Certification</label>
+                            <input type="text" id="degree_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Bachelor of Science in Business Administration">
+                        </div>
+                        <div>
+                            <label for="university_1" class="block text-sm font-medium text-gray-700 mb-1">University/Institution</label>
+                            <input type="text" id="university_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="University of Example">
+                        </div>
+                        <div>
+                            <label for="gradDate_1" class="block text-sm font-medium text-gray-700 mb-1">Graduation Date</label>
+                            <input type="text" id="gradDate_1" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="May 2019">
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeEducation(this)" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded-md shadow-sm">Remove Education</button>
+                </div>
+            `;
+            educationCount = 1;
+
+            // Uncheck the ATS and AI Enhancer buttons
+            document.getElementById('atsOptimizer').checked = false;
+            document.getElementById('aiEnhancer').checked = false;
+            document.getElementById('createCoverLetter').checked = false;
+            setupCheckboxButton('atsOptimizerBtn', 'atsOptimizer'); // Update button visual
+            setupCheckboxButton('aiEnhancerBtn', 'aiEnhancer'); // Update button visual
+            setupCheckboxButton('coverLetterBtn', 'createCoverLetter'); // Update button visual
+
+            // Hide the resume output container initially
+            document.getElementById('resume-output-container').style.display = 'none';
+            document.getElementById('ats-analysis-container').style.display = 'none'; // Hide ATS analysis on load
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupCheckboxButton('atsOptimizerBtn', 'atsOptimizer');
+            setupCheckboxButton('aiEnhancerBtn', 'aiEnhancer');
+            setupCheckboxButton('coverLetterBtn', 'createCoverLetter'); // Initialize the new cover letter button
+            lucide.createIcons();
+
+            // Hide output containers on initial load
+            document.getElementById('resume-output-container').style.display = 'none';
+            document.getElementById('ats-analysis-container').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

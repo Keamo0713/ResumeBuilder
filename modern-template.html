@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<title>Modern Resume</title>
+<link rel="stylesheet" href="{{ styles }}">
+<style>
+        .modern-resume {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+ 
+        .modern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+        }
+ 
+        .modern-header-text {
+            flex: 1;
+        }
+ 
+        .modern-header h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin: 0;
+            font-weight: 300;
+        }
+ 
+        .modern-header h2 {
+            color: #3498db;
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            font-weight: 400;
+        }
+ 
+        .modern-section {
+            margin-bottom: 30px;
+        }
+ 
+            .modern-section h3 {
+                color: #3498db;
+                font-size: 20px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+ 
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+ 
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+ 
+        .experience-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+ 
+        .experience-date {
+            min-width: 120px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+ 
+        .experience-content {
+            flex: 1;
+        }
+ 
+        .experience-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+ 
+        .ats-score {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+ 
+        .ats-score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+</style>
+</head>
+<body>
+<div class="modern-resume">
+<div class="modern-header">
+<div class="modern-header-text">
+<h1>{{ data.name }}</h1>
+<h2>{{ data.profession }}</h2>
+</div>
+</div>
+ 
+        <div class="modern-section">
+<h3>Profile</h3>
+<p>{{ data.summary }}</p>
+</div>
+ 
+        <div class="modern-section">
+<h3>Skills</h3>
+<div class="skills-tags">
+                {% for skill in data.skills_enhanced.split(',') %}
+<div class="skill-tag">{{ skill.strip() }}</div>
+                {% endfor %}
+</div>
+</div>
+ 
+        <div class="modern-section">
+<h3>Experience</h3>
+            {% for experience in data.experience_enhanced.split('\n') %}
+            {% if experience.strip() %}
+<div class="experience-item">
+<div class="experience-content">
+<div class="experience-title">{{ experience.split(',')[0] }}</div>
+<p>{{ experience[experience.find(',')+1:] }}</p>
+</div>
+</div>
+            {% endif %}
+            {% endfor %}
+</div>
+ 
+        <div class="modern-section">
+<h3>Education</h3>
+<p>{{ data.education_enhanced }}</p>
+</div>
+ 
+        <div class="ats-score">
+<div class="ats-score-value">{{ ats_score }}/100</div>
+<div>ATS Compatibility Score</div>
+</div>
+</div>
+</body>
+</html>
