@@ -39,7 +39,6 @@
 - [Usage](#-usage-guide)  
 - [Templates Available](#-templates-available)  
 - [AI Capabilities](#-ai-capabilities)  
-- [File Structure](#-file-structure)  
 - [Technical Stack](#-technical-details)  
 - [Contributors](#-contributors)  
 - [License](#-license)
@@ -99,19 +98,6 @@
 
 ---
 
-## 📁 File Structure
-
-
-├── index.html                             # Main landing page
-├── academic-template-form.html           # Academic-focused form
-├── business-template-form.html           # Business & corporate form
-├── customer-service-template-form.html   # Customer service resume
-├── entry-level-template-form.html        # Entry-level resume
-├── healthcare-template-form.html         # Healthcare resume
-├── image-upload-template-form.html       # Creative/visual resume
-├── project-management-template-form.html # Project management
-├── sales-marketing-template-form.html    # Sales & marketing resume
-├── tech-template-form.html               # Developer/Tech resume
 
 🧪 Technical Details
 HTML5 – Core form and content structure
