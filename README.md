@@ -1,9 +1,3 @@
-📌 Live Demo
-🎯 Try it now: https://keamo0713.github.io/ResumeBuilder/
-
-**Resume AI Studio** is a collaborative, web-based tool built by a dedicated development team to help users create professional, ATS-optimized resumes tailored to specific industries. With dynamic templates and integrated AI tools, it streamlines the resume creation process for a modern job market.
-
----
 
 ## 🚀 Features
 
